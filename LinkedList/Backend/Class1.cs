@@ -1,7 +1,7 @@
 ﻿
 namespace TallerListasLigadas
 {
-    // 1. CLASE NODO
+    // 1. NODE CLASS
     public class Nodo<T>
     {
         public T Dato { get; set; }
