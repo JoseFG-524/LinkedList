@@ -15,7 +15,7 @@ namespace TallerListasLigadas
             Siguiente = null;
         }
     }
-    // 2. CLASE LISTA DOBLEMENTE LIGADA
+    // 2. DOUBLY LINKED LIST CLASS
     public class ListaDoble<T> where T : IComparable<T>
     {
         public Nodo<T> Cabeza { get; private set; }
@@ -34,12 +34,12 @@ namespace TallerListasLigadas
             return Cabeza == null;
         }
 
-        // 3.1 Adicionar: inserción en orden ascendente
+        // 3.1 Add: Insert in ascending order
         public void Adicionar(T valor)
         {
             Nodo<T> nuevoNodo = new Nodo<T>(valor);
 
-            // Caso 1: La lista está vacía
+            // Case 1: The list is empty
             if (EstaVacia())
             {
                 Cabeza = nuevoNodo;
@@ -48,7 +48,7 @@ namespace TallerListasLigadas
                 return;
             }
 
-            // Caso 2: El nuevo valor es menor o igual a la Cabeza (insertar al inicio)
+            // Case 2: The new value is less than or equal to the Head (insert at the beginning)
             if (valor.CompareTo(Cabeza.Dato) <= 0)
             {
                 nuevoNodo.Siguiente = Cabeza;
@@ -58,7 +58,7 @@ namespace TallerListasLigadas
                 return;
             }
 
-            // Caso 3: El nuevo valor es mayor o igual a la Cola (insertar al final)
+            // Case 3: The new value is greater than or equal to the tail (insert at the end)
             if (valor.CompareTo(Cola.Dato) >= 0)
             {
                 nuevoNodo.Anterior = Cola;
@@ -68,7 +68,7 @@ namespace TallerListasLigadas
                 return;
             }
 
-            // Caso 4: Insertar en medio de la lista
+            // Case 4: Insert in the middle of the list
             Nodo<T> actual = Cabeza;
             while (actual != null && actual.Dato.CompareTo(valor) < 0)
             {
@@ -83,7 +83,7 @@ namespace TallerListasLigadas
             Contador++;
         }
 
-        // 2. Mostrar hacia adelante
+        // 2. Show forward
         public void MostrarHaciaAdelante()
         {
             if (EstaVacia())
@@ -102,7 +102,7 @@ namespace TallerListasLigadas
             Console.WriteLine();
         }
 
-        // 3. Mostrar hacia atrás
+        // 3. Show Previous
         public void MostrarHaciaAtrás()
         {
             if (EstaVacia())
@@ -121,7 +121,7 @@ namespace TallerListasLigadas
             Console.WriteLine();
         }
 
-        // 3.2 Ordenar descendentemente (los invierte)
+        // 3.2 Sort in descending order (reverses the order)
         public void OrdenarDescendentemente()
         {
             if (EstaVacia() || Cabeza == Cola)
@@ -146,7 +146,7 @@ namespace TallerListasLigadas
             Cola = temp;
         }
 
-        // Diccionario auxiliar de frecuencias para modas y gráfico
+        // Supplementary Frequency Dictionary for Modes and Graphs
         private Dictionary<T, int> ObtenerFrecuencias()
         {
             Dictionary<T, int> frecuencias = new Dictionary<T, int>();
@@ -168,7 +168,7 @@ namespace TallerListasLigadas
             return frecuencias;
         }
 
-        // 3.3 Mostrar la(s) moda(s)
+        // 3.3 Show the style(s)
         public void MostrarModas()
         {
             if (EstaVacia())
@@ -207,7 +207,7 @@ namespace TallerListasLigadas
             }
         }
 
-        // 3.4 Mostrar gráfico
+        // 3.4 Show chart
         public void MostrarGrafico()
         {
             if (EstaVacia())
@@ -226,7 +226,7 @@ namespace TallerListasLigadas
             }
         }
 
-        // 3.5 Existe
+        // 3.5 It exists
         public bool Existe(T valor)
         {
             Nodo<T> actual = Cabeza;
@@ -241,7 +241,7 @@ namespace TallerListasLigadas
             return false;
         }
 
-        // 3.6 Eliminar una ocurrencia
+        // 3.6 Delete an occurrence
         public bool EliminarUnaOcurrencia(T valor)
         {
             Nodo<T> actual = Cabeza;
@@ -280,7 +280,7 @@ namespace TallerListasLigadas
             return false;
         }
 
-        // 3.6 Eliminar todas las ocurrencias
+        // 3.6 Delete all instances
         public int EliminarTodasLasOcurrencias(T valor)
         {
             int eliminados = 0;

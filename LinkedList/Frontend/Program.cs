@@ -5,7 +5,7 @@ internal class Program
 {
     static void Main(string[] args)
     {
-        // Se crea una lista genérica
+        // A generic list is created
         ListaDoble<string> lista = new ListaDoble<string>();
         bool salir = false;
 
